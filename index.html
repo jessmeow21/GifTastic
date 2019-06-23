@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>GIPHY</title>
+    <!-- jquery and js -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="app.js"> </script>
@@ -14,12 +15,59 @@
 
 <body>
     <!-- //buttons=================================== -->
-    <div id="buttons">
-        <button data-person="cats">Cats</button>
-    </div>
+
+    <button id="cat-button">cats</button>
+
+    <!-- form -->
+    <form id="gif-form">
+        <label for="gif-input">Let's find a gif for that</label>
+        <input type="text" id="gif-input"><br>
+        <!-- Button triggers new gif to be added -->
+        <input id="newGif" type="submit" value="Search">
+    </form>
     <!-- //gif drop=================================== -->
 
-    <div id="gifs-appear-here"></div>
+    <div id="gif-view"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        //connect to giphy api
+        //ajax call and report response
+        //make buttons for html
+        //input form for submissions and submit button
+        //topics array
+        //q, limit, and rating parameters
+
+        //onclick function
+
+
+        var queryURL = "https://api.giphy.com/v1/gifs/trending?api_key=C6BXFZeCbeNMXSq2uaCAbt1f23BF0Qx6";
+        //ajax call from giphy
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+            // After the data from the AJAX request comes back
+
+        }).then(function (response) {
+            console.log(response);
+            console.log(response.data[1].rating); //return g
+            console.log()
+
+
+
+
+        });
+
+
+
+
+
+
+
+
+
+    </script>
 
 </body>
 
