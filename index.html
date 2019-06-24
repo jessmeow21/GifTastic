@@ -9,16 +9,18 @@
     <!-- jquery and js -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
     <script src="app.js"> </script>
 
 </head>
 
 <body>
     <!-- //buttons=================================== -->
+    <!-- <button data-search="cars">cars</button> -->
+    <button id="buttonarea"></button>
 
-    <button data-search="xfiles">xfiles</button>
-    <button data-search="thesimpsons">the simpsons</button>
-    <button data-search="xena">Xena</button>
+
 
     <!-- form -->
     <form id="gif-form">
@@ -32,55 +34,9 @@
     <div id="gif-area"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- <script src="app.js"></script> -->
 
-    <script type="text/javascript">
-
-
-
-
-        //array of actors
-        var topics = ["keanu reeves", "brad pit", "christian bale"];
-        //take topics in array and create buttons in html
-        //by using a loop to append a button for each string in the array
-
-
-        $("button").on("click", function () {
-            var x = $(this).data("search");
-
-            var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + x +
-                "&api_key=OAxCpgRbH01y0d1oR0AskyTeNu6pcWk3&limit=10";
-            // console.log(queryURL);
-
-
-            //ajax call from giphy
-            $.ajax({
-                url: queryURL,
-                method: "GET"
-                // After the data from the AJAX request comes back
-
-            }).then(function (response) {
-                console.log(response);
-                console.log(response.data[0].images.downsized); //return g
-                //append rating to html
-                for (let i = 0; i < response.data.length; i++) {
-
-                    $("#gif-area").prepend("<p>Rating: " + response.data[i].rating + "</p>");
-                    //append image
-                    $("#gif-area").prepend("<img src=' " + response.data[i].images.downsized.url + " '>");
-                    //for loop through data array
-                }
-
-
-            })
-
-
-        })
-
-
-
-
-
-    </script>
+    <script src="newapp.js"></script>
 
 </body>
 
