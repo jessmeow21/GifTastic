@@ -6,10 +6,23 @@
     text-align: center;
 }
 
-form  {
+form, p, .display-4   {
     text-align: center;
 }
 
 #add-gif {
     text-align: center;
+}
+
+.gifDiv {
+    display: inline-block;
+    padding: 10px;
+  }
+
+body {
+    background-color: #F0F8FF;
+}
+
+.button, #add-gif {
+    color: #6183A6;
 }

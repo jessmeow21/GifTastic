@@ -5,7 +5,7 @@ $(document).ready(function () {
     //create the button for the input
 
     //topics array
-    var topics = ["animals", "music", "comedy", "romance", "cats", "food", "gym", "batman", "keanu reeves"];
+    var topics = ["animals", "music", "comedy", "romance", "cats", "food", "batman", "keanu reeves", "flowers"];
 
 
     function displayGif() {
