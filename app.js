@@ -1,58 +1,68 @@
-// /////////////////////giftastic
+$(document).ready(function () {
+    //create buttons based on strings in the array
+    //when submit button is clicked
+    //get the value of input in text box and add to the array
+    //create the button for the input
 
-// //connect to giphy api
-// //ajax call and report response
-// //make buttons for html 
-// //input form for submissions and submit button
-// //topics array
-// //q, limit, and rating parameters 
-// $(document).ready(function () {
+    //topics array
+    var topics = ["animals", "music", "comedy", "romance", "cats", "food", "gym", "batman"];
 
+    //buttons for array
+    function arrayButtons() {
+        $("#gifButtonsArray").empty();
 
-//     //pulls 10 images from giphy
-//     //click to start and stop gif 
-//     //array of topics, loop over array and created buttons for them each
-//     //function to add submissions from form to the array
-//     var carModels = ["cars", "toyota", "bmw", "batmobile", "honda"];
-//     //take topics in array and create buttons in html
-//     //by using a loop to append a button for each string in the array
+        for (let i = 0; i < topics.length; i++) {
+            // console.log(topics);
+            var addGifButton = $('<button class="button">');
+            addGifButton.addClass("topics");
+            addGifButton.attr("data-name", topics[i]);
+            console.log(topics[i]);
+            addGifButton.html(topics[i]);
+            $("#gifButtonsArray").append(addGifButton);
+        }
+    }
+    arrayButtons();
 
-//     //function to make buttons and add to page
-//     function carButtons(arrayToUse, classToAdd, areaToAddTo) {
-//         // $(areaToAddTo).empty();
+    function displayGif() {
+        var x = $(this).attr("data-name");
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + x +
+            "&api_key=OAxCpgRbH01y0d1oR0AskyTeNu6pcWk3&limit=10";
+        $.ajax({ url: queryURL, method: "GET" }).then(function (response) {
+            console.log(response);
+            //empty divs holding preious gifs
+            $("#gifsHere").empty();
 
-//         for (var i = 0; i < arrayToUse.length; i++) {
-//             console.log(arrayToUse);
-//             var carButton = $("<button>");
-//             carButton.addClass(classToAdd);
-//             carButton.attr("data-type", arrayToUse[i]);
-//             carButton.text(arrayToUse[i]);
-//             $(areaToAddTo).append(carButton);
-//         }
-//     }
-//     carButtons();
+            for (let i = 0; i < response.data.length; i++) {
+                //variables to add HTML elements
+                var gifDiv = $('<div class="gifDiv">');
+                var rating = response.data[i].rating;
+                var ratingDiv = $('<p>').html("Rating: " + rating);
+                var animated = response.data[i].images.fixed_height.url;
+                var still = response.data[i].images.fixed_height_still.url;
+                var gifImg = $('<img class="gImage">');
 
+                //defaulting gifs to still
+                gifImg.attr('src', still);
+                gifImg.attr('data-still', still);
+                gifImg.attr('data-animate', animated);
+                gifImg.attr('data-state', 'still')
 
+                //gifs 
+                gifDiv.append(ratingDiv);
+                gifDiv.prepend(gifImg);
+                $("#gifsHere").prepend(gifDiv);
+            }
+        });
 
-// $(document).on("click", function () {
-//     var x = $(this).data("search");
-//     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + x +
-//         "&api_key=OAxCpgRbH01y0d1oR0AskyTeNu6pcWk3&limit=10";
-//     //ajax call from giphy
-//     $.ajax({
-//         url: queryURL,
-//         method: "GET"
-//         // After the data from the AJAX request comes back
-//     }).then(function (response) {
-//         for (let i = 0; i < response.data.length; i++) {
-//             $("#gif-area").prepend("<p>Rating: " + response.data[i].rating + "</p>");
-//             //append image
-//             $("#gif-area").prepend("<img src=' " + response.data[i].images.downsized.url + " '>");
-//         }
-//     })
-// })
+        //on click function to animate and pause the gifs
+        $("#gifsHere").on("click", ".gImage", function () {
+            var state = $(this).attr('data-state');
+            //if statement for state. If state is still, the on click will animate the gif
+            if (state === 'still') {
 
-
-// });
-
+            }
+        })
+    };
+    $(document).on("click", ".topics", displayGif);
+});
 

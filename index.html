@@ -1,43 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>GIPHY TV SHOWS</title>
+    <title>Food gifs</title>
     <!-- jquery and js -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-
-    <script src="app.js"> </script>
-
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
-    <!-- //buttons=================================== -->
-    <!-- <button data-search="cars">cars</button> -->
-    <button id="buttonarea"></button>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Topic Gifs</h1>
+            <p class="lead">Click a button and make a button</p>
+        </div>
+    </div>
 
 
+    <!-- buttons on the page -->
+    <div id="gifButtonsArray"></div>
 
+    <br>
     <!-- form -->
-    <form id="gif-form">
-        <label for="gif-input">Let's find a gif for that</label>
-        <input type="text" id="gif-input"><br>
-        <!-- Button triggers new gif to be added -->
-        <input id="newGif" type="submit" value="Search">
+    <form>
+        <label for="gif-input">Add a topic</label>
+        <input type="text" id="userInput" placeholder="Search..."><br>
+        <input type="submit" id="submit" value="Submit">
     </form>
-    <!-- //gif drop=================================== -->
 
-    <div id="gif-area"></div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- <script src="app.js"></script> -->
+    <!-- where the gifs will appear -->
+    <div id="gifsHere"></div>
 
-    <script src="newapp.js"></script>
 
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- <script src="app.js"></script> -->
+<script src="app.js"></script>
 
 </html>
