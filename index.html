@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Food gifs</title>
+    <title>The Gifs</title>
     <!-- jquery and js -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -17,31 +17,32 @@
 </head>
 
 <body>
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-4">The important things in life</h1>
-            <p>By Jessica Sulaiman</p>
-            <p class="lead">Click a button to see what I mean</p>
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">The important things in life</h1>
+                <p>By Jessica Sulaiman</p>
+                <p class="lead">Click a button to see what I mean</p>
+            </div>
         </div>
+
+
+        <!-- buttons on the page -->
+        <div id="gifButtonsArray"></div>
+
+        <br>
+        <!-- form -->
+        <form>
+            <label for="gif-input">Add a topic</label>
+            <input type="text" id="userInput" placeholder="Search..."><br>
+            <input type="submit" id="add-gif" value="Submit">
+        </form>
+
+
+        <!-- where the gifs will appear -->
+        <div id="gifsHere"></div>
+
     </div>
-
-
-    <!-- buttons on the page -->
-    <div id="gifButtonsArray"></div>
-
-    <br>
-    <!-- form -->
-    <form>
-        <label for="gif-input">Add a topic</label>
-        <input type="text" id="userInput" placeholder="Search..."><br>
-        <input type="submit" id="add-gif" value="Submit">
-    </form>
-
-
-    <!-- where the gifs will appear -->
-    <div id="gifsHere"></div>
-
-
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!-- <script src="app.js"></script> -->

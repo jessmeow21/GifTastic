@@ -5,7 +5,7 @@ $(document).ready(function () {
     //create the button for the input
 
     //topics array
-    var topics = ["animals", "music", "comedy", "romance", "cats", "food", "batman", "keanu reeves", "flowers"];
+    var topics = ["animals", "music", "comedy", "romance", "cats", "food", "batman", "keanu reeves", "flowers", "money"];
 
 
     function displayGif() {
@@ -18,15 +18,15 @@ $(document).ready(function () {
             $("#gifsHere").empty();
 
             for (let i = 0; i < response.data.length; i++) {
-                //variables to add HTML elements
+                //variables to add HTML elements 
                 var gifDiv = $('<div class="gifDiv">');
                 var rating = response.data[i].rating;
                 var ratingDiv = $('<p>').html("Rating: " + rating);
                 var animated = response.data[i].images.fixed_height.url;
                 var still = response.data[i].images.fixed_height_still.url;
-                var gifImg = $('<img class="gImage">');
+                var gifImg = $('<img class="gifImage">');
 
-                //defaulting gifs to still
+                //make gifs default to still
                 gifImg.attr('src', still);
                 gifImg.attr('data-still', still);
                 gifImg.attr('data-animate', animated);
@@ -40,10 +40,10 @@ $(document).ready(function () {
         });
     };
     //on click function to animate and pause the gifs
-    $("#gifsHere").on("click", ".gImage", function () {
-        var state = $(this).attr('data-state');
+    $("#gifsHere").on("click", ".gifImage", function () {
+        var stateGif = $(this).attr('data-state');
         //if statement for state. If state is still, the on click will animate the gif
-        if (state == 'still') {
+        if (stateGif === 'still') {
             $(this).attr('src', $(this).data('animate'));
             $(this).attr('data-state', 'animate');
         }
@@ -56,7 +56,7 @@ $(document).ready(function () {
 
 
 
-    //buttons for array
+    //make buttons and new buttons for array
     function arrayButtons() {
         $("#gifButtonsArray").empty();
 
@@ -67,6 +67,7 @@ $(document).ready(function () {
             addGifButton.attr("data-name", topics[i]);
             console.log(topics[i]);
             addGifButton.html(topics[i]);
+            //appends new buttons to original set
             $("#gifButtonsArray").append(addGifButton);
         }
     };
