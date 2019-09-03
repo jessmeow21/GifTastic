@@ -24,4 +24,4 @@ This app uses the jQuery Ajax method to make requests to the server-side APIs (A
 
 ## Before and After
 ![](before.png)
-![](after.png)
+![](jessafter.png)
